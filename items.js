@@ -183,53 +183,103 @@ function setCart(i){
 //წინააღმდეგ შემთხვევაში (reject) ამუშავებს შეცდომას (შლის არასწორ ინდექსს localStorage-დან)
 function showCart(){
     cout = document.getElementById("cart-output")
-    var cart = JSON.parse(localStorage.getItem("cart"))
-    if(cart == null){
-        return
-    }
-    for(let k=0;k<cart.length;k++){
-        for(let i=0;i<inst.length;i++){
-            if(cart[k]==inst[i].id){
-                var item = document.createElement("div")
-                item.className = "item"
-                var img = document.createElement("img")
-                img.src = inst[i].img
-                var p = document.createElement("p")
-                var ka = document.createElement("span")
-                ka.lang = "ka"
-                ka.innerText = inst[i].nKa
-                var en = document.createElement("span")
-                en.lang = "en"
-                en.innerText = inst[i].nEn
-                if(localStorage.getItem("lang")=="ka"){
-                    en.setAttribute("hidden",true)
-                }else{
-                    ka.setAttribute("hidden",true)
-                }
-                p.appendChild(ka)
-                p.appendChild(en)
-                var btn = document.createElement("button")
-                btn.id = "i"+i
-                var btnKa = document.createElement("span")
-                btnKa.lang = "ka"
-                btnKa.innerText = "ამოღება"
-                var btnEn = document.createElement("span")
-                btnEn.lang = "en"
-                btnEn.innerText = "Remove"
-                if(localStorage.getItem("lang")=="ka"){
-                    btnEn.setAttribute("hidden",true)
-                }else{
-                    btnKa.setAttribute("hidden",true)
-                }
-                btn.appendChild(btnKa)
-                btn.appendChild(btnEn)
-                btn.style.color = "red"
-                item.appendChild(img)
-                item.appendChild(p)
-                item.appendChild(btn)
-                cout.appendChild(item)
-                break
+    var emptyCart = new Promise(function(reslove,reject){
+        var cart = JSON.parse(localStorage.getItem("cart"))
+        if(cart == null){
+            reject()
+        }
+        reslove(cart)
+    })
+    emptyCart.then(
+        function(cart){
+            for(let k=0;k<cart.length;k++){
+                let cartPromise = new Promise(function(reslove,reject){
+                    for(let i=0;i<inst.length;i++){
+                        if(cart[k]==inst[i].id){                           
+                            reslove(i)
+                        }
+                    }
+                    reject(k)
+                })
+                cartPromise.then(
+                    function(index){
+                        //კალათის ელემენტის გამოტანა
+                        createCartItem(index)
+                    },
+                    function(err){
+                        //კალათში არასწორი ინდექსის ამოშლა
+                        removeCartIndex(err)
+                    }
+                )
             }
+        },
+        function(){
+            //კალათა ცარიელია
+            return
+        }
+    )
+}
+
+//გამოაქვს კალათის ელემენტი
+function createCartItem(i){
+    var item = document.createElement("div")
+    item.id = "cart"+i
+    item.className = "item"
+    var img = document.createElement("img")
+    img.src = inst[i].img
+    var p = document.createElement("p")
+    var ka = document.createElement("span")
+    ka.lang = "ka"
+    ka.innerText = inst[i].nKa
+    var en = document.createElement("span")
+    en.lang = "en"
+    en.innerText = inst[i].nEn
+    if(localStorage.getItem("lang")=="ka"){
+        en.setAttribute("hidden",true)
+    }else{
+        ka.setAttribute("hidden",true)
+    }
+    p.appendChild(ka)
+    p.appendChild(en)
+    var btn = document.createElement("button")
+    var btnKa = document.createElement("span")
+    btnKa.lang = "ka"
+    btnKa.innerText = "ამოღება"
+    var btnEn = document.createElement("span")
+    btnEn.lang = "en"
+    btnEn.innerText = "Remove"
+    if(localStorage.getItem("lang")=="ka"){
+        btnEn.setAttribute("hidden",true)
+    }else{
+        btnKa.setAttribute("hidden",true)
+    }
+    btn.appendChild(btnKa)
+    btn.appendChild(btnEn)
+    btn.style.color = "red"
+    btn.onclick = function(){
+        removeCartItem(i)
+    }
+    item.appendChild(img)
+    item.appendChild(p)
+    item.appendChild(btn)
+    cout.appendChild(item)
+}
+
+//შლის ინდექსს კალათიდან
+function removeCartIndex(i){
+    console.log(i)
+    var cart = JSON.parse(localStorage.getItem("cart"))
+    for(let k=0;k<cart.length;k++){
+        if(cart[k]==i){
+            cart.splice(k,1)
         }
     }
+    localStorage.setItem("cart",JSON.stringify(cart))
+}
+
+//შლის კალათის ელემენტს და შესაბამის ინდექსს
+function removeCartItem(i){
+    var item = document.getElementById("cart"+i)
+    item.remove()
+    removeCartIndex(i)
 }
