@@ -1,0 +1,57 @@
+<style>
+    .menu{
+        display: flex;
+        width: 100%;
+        background-color: rgb(255, 190, 70);
+        height: 80px;
+        justify-content: space-around;
+        text-align: center;
+        margin: 0 auto;
+        align-items: center;
+    }
+    .menu a{
+        flex-basis: 25%;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+    .menu button{
+        border: none;
+        background-color:transparent;
+        flex-basis: 10%;
+        color: purple;
+        font-weight: bold;
+        font-style: italic;
+        font-size: 14px;
+    }
+    .menu button:hover{
+        color: darkgreen;
+    }
+    .menu a:hover{
+        color: white;
+    }
+    @media (max-width: 820px){
+        .menu a{
+            font-size:12px;
+        }
+    }
+    @media (max-width: 600px){
+        .menu{
+            height: 160px;
+            flex-wrap:wrap;
+        }
+        .menu a{
+            font-size:16px;
+        }
+    }
+</style>
+<div class="menu">
+    <a href="index.html"><span lang="ka">მთავარი</span><span lang="en" hidden>Main</span></a>
+    <a id="multiline" href="about.html"><span lang="ka">ვებგვერდის შესახებ</span><span lang="en" hidden>About webpage</span></a>
+    <a href="contact.html"><span lang="ka">კონტაქტი</span><span lang="en" hidden>Contact</span></a>
+    <a href="authorize.html"><span lang="ka">ავტორიზაცია</span><span lang="en" hidden>Authorization</span></a>
+    <a href="register.html"><span lang="ka">რეგისტრაცია</span><span lang="en" hidden>Registration</span></a>
+    <a href="categories.html"><span lang="ka">კატეგორიები</span><span lang="en" hidden>Categories</span></a>
+    <a href="cart.html"><span lang="ka">კალათა</span><span lang="en" hidden>Cart</span></a>
+    <button onclick="swLang()"><span lang="ka">ქარ</span><span lang="en" hidden>Eng</span></button>
+</div>

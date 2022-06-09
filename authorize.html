@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en+ka">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>მუსიკალური ინსტრუმენტები: ავტორიზაცია</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="menu-section">
+        <script async src="menu.js"></script>
+    </section>
+    <section>
+        <div class="form-background authorization-background">
+            <div class="authorization">
+                <div class="form authorization-form">
+                    <h1><span lang="ka">ავტორიზაცია</span><span lang="en" hidden>Authorization</span></h1>
+                    <div class="form-line authorization-line">
+                        <label for="user"><span lang="ka">მომხმარებლის სახელი:</span><span lang="en" hidden>Username:</span></label>
+                        <input type="text" id="user">
+                    </div>
+                    <div class="form-line authorization-line">
+                        <label for="pass"><span lang="ka">პაროლი:</span><span lang="en" hidden>Password:</span></label>
+                        <input type="password" id="pass">
+                    </div>
+                    <div class="form-line">
+                        <div></div>
+                        <button class="authorization-button" onclick="checkForm()"><span lang="ka">ავტორიზაცია</span><span lang="en" hidden>Authorize</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="authorize.js"></script>
+</html>

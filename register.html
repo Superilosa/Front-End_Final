@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en+ka">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>მუსიკალური ინსტრუმენტები: რეგისტრაცია</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="menu-section">
+        <script async src="menu.js"></script>
+    </section>
+    <section>
+        <div class="form-background registration-background">
+            <div class="registration">
+                <div class="form registration-form">
+                    <h1><span lang="ka">რეგისტრაცია</span><span lang="en" hidden>Registration</span></h1>
+                    <div class="form-line">
+                        <label for="user"><span lang="ka">მომხმარებლის სახელი:</span><span lang="en" hidden>Username:</span></label>
+                        <input type="text" id="user">
+                    </div>
+                    <div class="form-line">
+                        <label for="mail"><span lang="ka">ელექტრონული ფოსტა:</span><span lang="en" hidden>Email:</span></label>
+                        <input type="email" id="mail">
+                    </div>
+                    <div class="form-line">
+                        <label for="pass"><span lang="ka">პაროლი:</span><span lang="en" hidden>Password:</span></label>
+                        <input type="password" id="pass">
+                    </div>
+                    <div class="form-line">
+                        <label for="pass2"><span lang="ka">გაიმეორეთ პაროლი:</span><span lang="en" hidden>Repeat password:</span></label>
+                        <input type="password" id="pass2">
+                    </div>
+                    <div class="form-line">
+                        <label for="country"><span lang="ka">ქვეყანა:</span><span lang="en" hidden>Country:</span></label>
+                        <input type="text" id="country">
+                    </div>
+                    <div class="form-line">
+                        <label for="town"><span lang="ka">ქალაქი:</span><span lang="en" hidden>Town:</span></label>
+                        <input type="text" id="town">
+                    </div>
+                    <div class="form-line">
+                        <label for="num"><span lang="ka">მობილურის ნომერი:</span><span lang="en" hidden>Mobile number:</span></label>
+                        <input type="tel" id="num">
+                    </div>
+                    <div class="form-line">
+                        <label for="date"><span lang="ka">რეგისტრაციის თარიღი:</span><span lang="en" hidden>Registration date:</span></label>
+                        <input type="date" id="date" disabled>
+                    </div>
+                    <div class="form-line">
+                        <div></div>
+                        <button class="registration-button" onclick="checkForm()"><span lang="ka">რეგისტრაცია</span><span lang="en" hidden>Register</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="register.js"></script>
+</html>

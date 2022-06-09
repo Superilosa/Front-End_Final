@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en+ka">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>მუსიკალური ინსტრუმენტები: კატეგორიები</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="menu-section">
+        <script async src="menu.js"></script>
+    </section>
+    <section>
+        <div class="categories">
+            <div class="category-line line1">
+                <div class="category" onclick="sub(1);dis('S')" id="S"><span lang="ka">სიმებიანი</span><span lang="en" hidden>Strings</span></div>
+                <div class="category" onclick="subClear();dis('K')" id="K"><span lang="ka">კლავიშიანი</span><span lang="en" hidden>Keyboards</span></div>
+                <div class="category" onclick="subClear();dis('D')" id="D"><span lang="ka">დასარტყამი</span><span lang="en" hidden>Percussions</span></div>
+                <div class="category" onclick="sub(2);dis('C')" id="C"><span lang="ka">ჩასაბერი</span><span lang="en" hidden>Wind</span></div>
+            </div>
+            <div class="category-line line2">
+                <div class="category sub sub1" hidden onclick="dis('X')" id="X"><span lang="ka">სიმებიან-ხემიანი</span><span lang="en" hidden>Bowed Strings</span></div>
+                <div class="category sub sub1" hidden onclick="dis('G')" id="G"><span lang="ka">გიტარები</span><span lang="en" hidden>Guitars</span></div>
+                <div class="category sub sub2" hidden onclick="dis('W')" id="W"><span lang="ka">ხის ჩასაბერები</span><span lang="en" hidden>Woodwind</span></div>
+                <div class="category sub sub2" hidden onclick="dis('L')" id="L"><span lang="ka">ლითონის ჩასაბერები</span><span lang="en" hidden>Brass</span></div>
+            </div>
+        </div>
+        <div id="cat-output">
+        </div>
+    </section>
+</body>
+<script src="items.js"></script>
+</html>
