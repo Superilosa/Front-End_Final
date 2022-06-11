@@ -1,3 +1,4 @@
+//ენების გადამრთველი ფუნქცია. მცირე ნაწილში გამოყენებული Promise-ც
 if(localStorage.getItem("lang") == null){
     localStorage.setItem("lang") == "ka"
 }else if(localStorage.getItem("lang") == "en"){

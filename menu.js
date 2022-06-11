@@ -1,5 +1,5 @@
-//გვერდის თავში ტვირთავს მენიუს
-//(გამოყენებულია XMLHttpRequest)
+//გვერდის თავში ტვირთავს მენიუს და ასევე ტვირთავს ენების გადართვის სკრიფტს
+//გამოყენებულია XMLHttpRequest
 
 var request = new XMLHttpRequest()
 request.open("GET","menu.html")
